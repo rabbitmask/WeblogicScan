@@ -23,7 +23,7 @@ Weblogic vulnerability one-click poc detection.
         CVE-2017-3248   
         CVE-2018-2628 
         CVE-2018-2893
-		CVE_2019_2725		
+	CVE_2019_2725		
         
         #Any file upload
         CVE-2018-2894   
@@ -49,7 +49,7 @@ Software using Demo:
 	  \ V  V /  __/ |_) | | (_) | (_| | | (__   ___) | (_| (_| | | | |
 	   \_/\_/ \___|_.__/|_|\___/ \__, |_|\___| |____/ \___\__,_|_| |_|
 								 |___/
-								 By Tide_RabbitMask | V 1.1
+						By Tide_RabbitMask | V 1.1
 
 	Welcome To WeblogicScan !!
 	[*]Console path test begins...
