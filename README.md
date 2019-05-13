@@ -79,5 +79,3 @@ Software using Demo:
 	[*]CVE_2019_2725 test begins...
 	[-]Target weblogic not detected CVE-2019-2725
 	[*]The mission is over,the goal is 127.0.0.1:7001
-
-=========================================================================
