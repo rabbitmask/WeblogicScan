@@ -26,7 +26,7 @@ def islive(ur,port):
 def run(url,port):
     if islive(url,port)==200:
         u='http://' + str(url)+':'+str(port)+'/uddiexplorer/'
-        logging.info('[+]The target Weblogic UDDI module is exposed!\t[+]The path is: {}\t[+]Please verify the SSRF vulnerability!'.format(u))
+        logging.info('[+]The target Weblogic UDDI module is exposed! The path is: {} Please verify the SSRF vulnerability!'.format(u))
         print('[+]The target Weblogic UDDI module is exposed!\n[+]The path is: {}\n[+]Please verify the SSRF vulnerability!'.format(u))
     else:
         logging.info("[-]The target Weblogic UDDI module default path does not exist!")
