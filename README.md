@@ -23,7 +23,7 @@ Weblogic vulnerability one-click poc detection.
         CVE-2017-3248   
         CVE-2018-2628 
         CVE-2018-2893
-	CVE_2019_2725		
+        CVE_2019_2725		
         
         #Any file upload
         CVE-2018-2894   
