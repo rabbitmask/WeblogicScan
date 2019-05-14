@@ -34,6 +34,7 @@ Weblogic vulnerability one-click poc detection.
 	
     V 1.1 Update log:
 	
+	Cut exp:all
         Cut poc:CVE-2015-4852
         New poc:CVE-2017-10271,CVE_2019_2725,CVE-2018-2894
         New Logging Function
