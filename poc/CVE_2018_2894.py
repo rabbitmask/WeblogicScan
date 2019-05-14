@@ -25,7 +25,7 @@ def islive(ur,port):
     return r.status_code
 
 def run(url,port,index):
-    if islive(url,port)==200:
+    if islive(url,port)!=404:
         logging.info('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
         print('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
     else:
