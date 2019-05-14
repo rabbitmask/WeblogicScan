@@ -26,7 +26,7 @@ def islive(ur,port):
 def run(url,port):
     if islive(url,port)==200:
         u='http://' + str(url)+':'+str(port)+'/console/login/LoginForm.jsp'
-        logging.info("[+]The target Weblogic console address is exposed!\t[+]The path is: {}\t[+]Please try weak password blasting!".format(u))
+        logging.info("[+]The target Weblogic console address is exposed! The path is: {} Please try weak password blasting!".format(u))
         print("[+]The target Weblogic console address is exposed!\n[+]The path is: {}\n[+]Please try weak password blasting!".format(u))
     else:
         logging.info('[-]Target Weblogic console address not found!')
