@@ -5,7 +5,7 @@ Weblogic vulnerability one-click poc detection.
 	Thanks to the open source POC from the web.
 	I have only carried out the magic transformation and interface unification.  
 	Disclaimer：Pia!(ｏ ‵-′)ノ”(ノ﹏<。)
-    This tool is for safety testing only,and should not be used for illegal use.
+	This tool is for safety testing only,and should not be used for illegal use.
         
     V 1.1 Features：
     Provides a one-click poc detection that includes almost all weblogic history vulnerabilities.
@@ -32,13 +32,13 @@ Weblogic vulnerability one-click poc detection.
         CVE-2017-10271 
         CVE-2017-3506
 	
-	V 1.1 Update log:
+    V 1.1 Update log:
 	
-		Cut poc:CVE-2015-4852
-		New poc:CVE-2017-10271,CVE_2019_2725,CVE-2018-2894
-		New Logging Function
-		New Console
-		New Name and Banner
+        Cut poc:CVE-2015-4852
+        New poc:CVE-2017-10271,CVE_2019_2725,CVE-2018-2894
+        New Logging Function
+        New Console
+        New Name and Banner
 	
 		
 Software using Demo:	
