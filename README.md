@@ -1,4 +1,4 @@
-<div align=center><img src=WeblogicScan.jpg width=30% ></div>
+<div align=center><img src=WeblogicScan.jpg></div>
 
 # WeblogicScan
 Weblogic vulnerability one-click poc detection.
