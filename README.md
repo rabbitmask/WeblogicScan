@@ -9,7 +9,7 @@ Weblogic vulnerability one-click poc detection.
 	Disclaimer：Pia!(ｏ ‵-′)ノ”(ノ﹏<。)
 	This tool is for safety testing only,and should not be used for illegal use.
         
-    V 1.1 Features：
+    V 1.2 Features：
     Provides a one-click poc detection that includes almost all weblogic history vulnerabilities.
     Details are as follows：
 	
@@ -35,13 +35,17 @@ Weblogic vulnerability one-click poc detection.
         CVE-2017-3506
 	
     V 1.1 Update log:
-	
         Cut exp:all
         Cut poc:CVE-2015-4852
         New poc:CVE-2017-10271,CVE-2019-2725,CVE-2018-2894
         New Logging Function
         New Console
         New Name and Banner
+	
+    V 1.2 Update log:	
+        New Package Off-line Installation：
+        	New Folder:/whl/
+        	Installation using install.py
 	
 		
 Software using Demo:	
@@ -52,7 +56,7 @@ Software using Demo:
 	  \ V  V /  __/ |_) | | (_) | (_| | | (__   ___) | (_| (_| | | | |
 	   \_/\_/ \___|_.__/|_|\___/ \__, |_|\___| |____/ \___\__,_|_| |_|
 				     |___/
-						By Tide_RabbitMask | V 1.1
+						By Tide_RabbitMask | V 1.2
 
 	Welcome To WeblogicScan !!
 	[*]Console path test begins...
