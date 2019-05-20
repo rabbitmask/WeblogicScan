@@ -10,7 +10,6 @@
 
 '''
 import sys
-
 import poc.Console
 import poc.CVE_2014_4210
 import poc.CVE_2016_0638
@@ -23,7 +22,7 @@ import poc.CVE_2018_2893
 import poc.CVE_2018_2894
 import poc.CVE_2019_2725
 
-version = "1.1"
+version = "1.2"
 banner='''
 __        __   _     _             _        ____                  
 \ \      / /__| |__ | | ___   __ _(_) ___  / ___|  ___ __ _ _ __  
