@@ -1,15 +1,15 @@
 <div align=center><img src=WeblogicScan.jpg width="60%"></div>
 
 # WeblogicScan
-#####Weblogic一键检测工具，V1.3
+Weblogic一键检测工具，V1.3
 
 	软件作者：Tide_RabbitMask
 	免责声明：Pia!(ｏ ‵-′)ノ”(ノ﹏<。)
 	本工具仅用于安全测试，请勿用于非法使用，要乖哦~
-===        
-    V 1.3功能介绍：
-    提供一键poc检测，收录几乎全部weblogic历史漏洞。
-    详情如下：
+	
+	V 1.3功能介绍：
+	提供一键poc检测，收录几乎全部weblogic历史漏洞。
+	详情如下：
 	
         #控制台路径泄露
         Console  
@@ -50,10 +50,6 @@
     	全新支持Python3
 		重写POC:CVE-2019-2725
 		新增POC:CVE-2019-2729
-
-Usage: 
-===
-python WeblogicScan [IP] [PORT]
 
 Software using Demo:	
 ===
