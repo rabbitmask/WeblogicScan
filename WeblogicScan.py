@@ -113,7 +113,7 @@ def run():
     print(banner)
     print('Welcome To WeblogicScan !!!\nWhoami：rabbitmask.github.io')
     if len(sys.argv)<3:
-        print('Usage: python WeblogicScan [IP] [PORT]')
+        print('Usage: python3 WeblogicScan [IP] [PORT]')
     else:
         url = sys.argv[1]
         port = int(sys.argv[2])
