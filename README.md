@@ -1,7 +1,7 @@
 <div align=center><img src=WeblogicScan.jpg width="60%"></div>
 
 # WeblogicScan
-Weblogic一键检测工具，V1.3
+Weblogic一键漏洞检测工具，V1.3
 
 	软件作者：Tide_RabbitMask
 	免责声明：Pia!(ｏ ‵-′)ノ”(ノ﹏<。)
