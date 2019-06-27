@@ -1,13 +1,13 @@
 <div align=center><img src=WeblogicScan.jpg width="60%"></div>
 
 # WeblogicScan
-Weblogic一键检测工具，V1.3
+#####Weblogic一键检测工具，V1.3
 
-软件作者：Tide_RabbitMask
-感谢来自网络的开源POC，
-我只是进行了魔改和接口统一。
-免责声明：Pia!(ｏ ‵-′)ノ”(ノ﹏<。)
-本工具仅用于安全测试，请勿用于非法使用，要乖哦~
+	软件作者：Tide_RabbitMask
+	感谢来自网络的开源POC，
+	我只是进行了魔改和接口统一。
+	免责声明：Pia!(ｏ ‵-′)ノ”(ノ﹏<。)
+	本工具仅用于安全测试，请勿用于非法使用，要乖哦~
         
     V 1.3功能介绍：
     提供一键poc检测，收录几乎全部weblogic历史漏洞。
@@ -32,7 +32,7 @@ Weblogic一键检测工具，V1.3
         CVE-2018-2894   
         
         #XMLDecoder反序列化
-	CVE-2017-3506
+		CVE-2017-3506
         CVE-2017-10271 
         
     V 1.1 更新日志:
@@ -50,12 +50,14 @@ Weblogic一键检测工具，V1.3
 
     V 1.3 更新日志:	
     	全新支持Python3
-	重写POC:CVE-2019-2725
-	新增POC:CVE-2019-2729
+		重写POC:CVE-2019-2725
+		新增POC:CVE-2019-2729
 
-		
+Usage: 
+	python WeblogicScan [IP] [PORT]
+===
 Software using Demo:	
-================================================================================	
+===
 	__        __   _     _             _        ____
 	\ \      / /__| |__ | | ___   __ _(_) ___  / ___|  ___ __ _ _ __
 	 \ \ /\ / / _ \ '_ \| |/ _ \ / _` | |/ __| \___ \ / __/ _` | '_ \
@@ -66,6 +68,7 @@ Software using Demo:
 
 	Welcome To WeblogicScan !!!
 	Whoami：rabbitmask.github.io
+	Usage: python WeblogicScan [IP] [PORT]
 	[*]Console path is testing...
 	[+]The target Weblogic console address is exposed!
 	[+]The path is: http://127.0.0.1:7001/console/login/LoginForm.jsp
@@ -97,4 +100,4 @@ Software using Demo:
 	[+]The target weblogic has a JAVA deserialization vulnerability:CVE-2019-2729
 	[+]Your current permission is:  rabbitmask\rabbitmask
 	[*]Happy End,the goal is 127.0.0.1:7001	
-================================================================================
+
