@@ -63,7 +63,7 @@ Software using Demo:
 
 	Welcome To WeblogicScan !!!
 	Whoami：rabbitmask.github.io
-	Usage: python WeblogicScan [IP] [PORT]
+	Usage: python3 WeblogicScan [IP] [PORT]
 	[*]Console path is testing...
 	[+]The target Weblogic console address is exposed!
 	[+]The path is: http://127.0.0.1:7001/console/login/LoginForm.jsp
