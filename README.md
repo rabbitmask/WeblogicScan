@@ -30,7 +30,7 @@ Weblogic一键检测工具，V1.3
         CVE-2018-2894   
         
         #XMLDecoder反序列化
-	CVE-2017-3506
+        CVE-2017-3506
         CVE-2017-10271 
         
     V 1.1 更新日志:
@@ -47,9 +47,9 @@ Weblogic一键检测工具，V1.3
         Usage：python3 install.py
 
     V 1.3 更新日志:	
-    	全新支持Python3
-		重写POC:CVE-2019-2725
-		新增POC:CVE-2019-2729
+        全新支持Python3
+        重写POC:CVE-2019-2725
+        新增POC:CVE-2019-2729
 
 Software using Demo:	
 ===
