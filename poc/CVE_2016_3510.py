@@ -44,7 +44,7 @@ def sendEvilObjData(sock,data):
     res = ''
     try:
         while True:
-            res += sock.recv(4096)
+            res += sock.recv(4096).decode("utf8", "ignore")
             time.sleep(0.1)
     except Exception:
         pass

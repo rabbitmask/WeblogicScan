@@ -69,6 +69,8 @@ def run(rip,rport,index):
     poc(url=url,index=index)
 
 if __name__ == '__main__':
-    dip = sys.argv[1]
-    dport = int(sys.argv[2])
+    # dip = sys.argv[1]
+    # dport = int(sys.argv[2])
+    dip = '127.0.0.1'
+    dport = 7001
     run(dip,dport,0)
