@@ -8,15 +8,10 @@
 |_| \_\__,_|_.__/|_.__/|_|\__|_|  |_|\__,_|___/_|\_\
 
 '''
-import logging
 import sys
 import requests
+from config.config_requests import headers
 
-logging.basicConfig(filename='Weblogic.log',
-                    format='%(asctime)s %(message)s',
-                    filemode="w", level=logging.INFO)
-
-headers = {'user-agent': 'ceshi/0.0.1'}
 
 def islive(ur,port):
     url='http://' + str(ur)+':'+str(port)+'/uddiexplorer/'
@@ -26,11 +21,9 @@ def islive(ur,port):
 def run(url,port):
     if islive(url,port)==200:
         u='http://' + str(url)+':'+str(port)+'/uddiexplorer/'
-        logging.info('[+]The target Weblogic UDDI module is exposed! The path is: {} Please verify the SSRF vulnerability!'.format(u))
-        print('[+]The target Weblogic UDDI module is exposed!\n[+]The path is: {}\n[+]Please verify the SSRF vulnerability!'.format(u))
+        return (1,"[+] [{}] Weblogic UDDI module is exposed! The path is: {}".format(url+':'+str(port),u))
     else:
-        logging.info("[-]The target Weblogic UDDI module default path does not exist!")
-        print("[-]The target Weblogic UDDI module default path does not exist!")
+        return (0,"[-] [{}] Weblogic UDDI module default path does not exist!".format(url+':'+str(port)))
 
 if __name__=="__main__":
     url = sys.argv[1]

