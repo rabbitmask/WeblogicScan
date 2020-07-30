@@ -10,7 +10,7 @@
 from fake_useragent import UserAgent
 
 # 实例化 UserAgent 类
-ua = UserAgent()
+ua = UserAgent(verify_ssl=False)
 
 # 通用headers配置
 headers={"User-Agent":ua.random}
