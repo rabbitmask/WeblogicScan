@@ -8,6 +8,7 @@
 |_| \_\__,_|_.__/|_.__/|_|\__|_|  |_|\__,_|___/_|\_\
 '''
 import argparse
+from config.config_logging import loglog
 from poc.index import *
 
 
@@ -20,6 +21,7 @@ def poc(rip,rport):
     print ("[*] =========Task Start=========")
     for i in pocindex:
         tmp,res=pocbase(i,rip,rport)
+        loglog(res)
         print(res)
     print ("[*] =========Task E n d=========")
 

