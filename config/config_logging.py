@@ -11,7 +11,7 @@ import logging
 
 logging.basicConfig(filename='Weblogic.log',
                     format='%(asctime)s %(message)s',
-                    filemode="w", level=logging.INFO)
+                    filemode="a", level=logging.INFO)
 
 def loglog(log):
     logging.info(log)
