@@ -120,7 +120,7 @@ Whoami：https://github.com/rabbitmask
 [-] [127.0.0.1:7001] weblogic not detected CVE-2019-2725
 [-] [127.0.0.1:7001] weblogic not detected CVE-2019-2729
 [+] [127.0.0.1:7001] weblogic has a JAVA deserialization vulnerability:CVE-2019-2890
-[*] =========Task E n d=========
+[*] ==========Task End==========
 ```
 ```python WeblogicScan.py -f target.txt```
 ```
