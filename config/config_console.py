@@ -17,6 +17,7 @@ def pocbase(pocname,rip,rport):
     tmp,res=eval(pocname).run(rip,rport)
     return (tmp,res)
 
+
 def poc(rip,rport):
     print ("[*] =========Task Start=========")
     for i in pocindex:
@@ -26,11 +27,14 @@ def poc(rip,rport):
     print ("[*] =========Task E n d=========")
 
 def pocs(rip,rport,q):
-    for i in pocindex:
-        tmp,res=pocbase(i,rip,rport)
-        loglog(res)
-        if tmp==1:
-            print(res)
+    try:
+        for i in pocindex:
+            tmp,res=pocbase(i,rip,rport)
+            loglog(res)
+            if tmp==1:
+                print(res)
+    except:
+        print ("[-] [{}] Weblogic Network Is Abnormal ".format(rip+':'+str(rport)))
     q.put(rip,rport)
 
 
@@ -68,7 +72,11 @@ def Weblogic_Console():
     args = parser.parse_args()
 
     if args.ip and args.port:
-        poc(args.ip,int(args.port))
+        try:
+            poc(args.ip,int(args.port))
+        except ConnectionRefusedError:
+            print("[-] [{}] Weblogic Network Is Abnormal ".format(args.ip + ':' + str(args.port)))
+            print("[*] ==========Task End==========")
     elif args.file:
         poolmana(args.file)
 
