@@ -17,11 +17,14 @@ def whoareu(rip,rport):
     sock.connect(server_address)
     sock.send(bytes.fromhex('74332031322e322e310a41533a3235350a484c3a31390a4d533a31303030303030300a0a'))
     sleep(1)
-    v=(re.findall(r'HELO:(.*?).false', sock.recv(1024).decode()))[0]
-    if v:
-        return (1,"[+] [{}] Weblogic Version Is {}".format(rip+':'+str(rport),v))
-    else:
-        return (0,"[-] [{}] Weblogic Version Recognition Failed".format(rip+':'+str(rport)))
+    try:
+        v=(re.findall(r'HELO:(.*?).false', sock.recv(1024).decode()))[0]
+        if v:
+            return (1,"[+] [{}] Weblogic Version Is {}".format(rip+':'+str(rport),v))
+        else:
+            return (0,"[-] [{}] Weblogic Version Recognition Failed".format(rip+':'+str(rport)))
+    except:
+        return (0, "[-] [{}] Weblogic Version Recognition Failed".format(rip + ':' + str(rport)))
 
 def run(rip,rport):
     return whoareu(rip,rport)
