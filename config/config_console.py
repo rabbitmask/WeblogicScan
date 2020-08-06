@@ -14,25 +14,29 @@ from multiprocessing import Pool, Manager
 from poc.index import *
 
 def pocbase(pocname,rip,rport):
-    tmp,res=eval(pocname).run(rip,rport)
-    return (tmp,res)
-
+    try:
+        tmp,res=eval(pocname).run(rip,rport)
+        return (tmp,res)
+    except:
+        pass
 
 def poc(rip,rport):
     print ("[*] =========Task Start=========")
     for i in pocindex:
         tmp,res=pocbase(i,rip,rport)
-        loglog(res)
-        print(res)
+        if res:
+            loglog(res)
+            print(res)
     print ("[*] =========Task E n d=========")
 
 def pocs(rip,rport,q):
     try:
         for i in pocindex:
             tmp,res=pocbase(i,rip,rport)
-            loglog(res)
-            if tmp==1:
-                print(res)
+            if res:
+                loglog(res)
+                if tmp==1:
+                    print(res)
     except:
         print ("[-] [{}] Weblogic Network Is Abnormal ".format(rip+':'+str(rport)))
     q.put(rip,rport)
