@@ -23,20 +23,20 @@ def pocbase(pocname,rip,rport):
 def poc(rip,rport):
     print ("[*] =========Task Start=========")
     for i in pocindex:
-        tmp,res=pocbase(i,rip,rport)
+        res=pocbase(i,rip,rport)
         if res:
-            loglog(res)
-            print(res)
+            loglog(res[1])
+            print(res[1])
     print ("[*] =========Task E n d=========")
 
 def pocs(rip,rport,q):
     try:
         for i in pocindex:
-            tmp,res=pocbase(i,rip,rport)
+            res=pocbase(i,rip,rport)
             if res:
-                loglog(res)
-                if tmp==1:
-                    print(res)
+                loglog(res[1])
+                if res[0]==1:
+                    print(res[1])
     except:
         print ("[-] [{}] Weblogic Network Is Abnormal ".format(rip+':'+str(rport)))
     q.put(rip,rport)
