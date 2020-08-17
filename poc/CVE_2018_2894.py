@@ -16,12 +16,15 @@ VUL=['CVE-2018-2894']
 
 
 def islive(ur,port):
-    url='http://' + str(ur)+':'+str(port)+'/ws_utc/resources/setting/options/general'
-    r = requests.get(url, headers=headers)
-    return r.status_code
+    url='http://' + str(ur)+':'+str(port)+'/wsutc/begin.do'
+    r1 = requests.get(url, headers=headers)
+    url='http://' + str(ur)+':'+str(port)+'/wsutc/config.do'
+    r2 = requests.get(url, headers=headers)
+    return r1.status_code,r2.status_code
 
 def run(rip,rport):
-    if islive(rip,rport)!=404:
+    a,b=islive(rip,rport)
+    if a == 200 or b == 200:
         return (1, '[+] [{}] weblogic has a JAVA deserialization vulnerability:{}'.format(rip + ':' + str(rport), VUL[0]))
     else:
         return (0, '[-] [{}] weblogic not detected {}'.format(rip + ':' + str(rport), VUL[0]))
