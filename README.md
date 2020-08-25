@@ -191,3 +191,5 @@ Whoami：https://github.com/rabbitmask
 2020-07-30 14:17:19,854 [+] [127.0.0.1:7001] weblogic has a JAVA deserialization vulnerability:CVE-2019-2890
 2020-07-30 14:17:21,805 [+] [172.19.19.19:7001] weblogic has a JAVA deserialization vulnerability:CVE-2019-2890
 ```
+
+##### Thanks for the support from [JetBrains](https://www.jetbrains.com/?from=WeblogicScan).
