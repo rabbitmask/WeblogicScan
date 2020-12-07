@@ -16,9 +16,9 @@ VUL=['CVE-2018-2894']
 
 
 def islive(ur,port):
-    url='http://' + str(ur)+':'+str(port)+'/wsutc/begin.do'
+    url='http://' + str(ur)+':'+str(port)+'/ws_utc/begin.do'
     r1 = requests.get(url, headers=headers)
-    url='http://' + str(ur)+':'+str(port)+'/wsutc/config.do'
+    url='http://' + str(ur)+':'+str(port)+'/ws_utc/config.do'
     r2 = requests.get(url, headers=headers)
     return r1.status_code,r2.status_code
 
