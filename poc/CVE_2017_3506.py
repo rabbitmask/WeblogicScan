@@ -11,10 +11,14 @@
 import sys
 import requests
 import re
-
+from config.config_requests import ua
 
 VUL=['CVE-2017-3506']
-headers = {'user-agent': 'ceshi/0.0.1'}
+headers = {
+    "Accept-Language":"zh-CN,zh;q=0.9,en;q=0.8",
+    "User-Agent":ua,
+    "Content-Type":"text/xml"
+}
 
 def poc(u):
     url = "http://" + u
